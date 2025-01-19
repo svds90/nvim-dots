@@ -26,25 +26,3 @@ M.defaults = function()
 end
 
 return M
-
--- return {
---   pyright = {
---     settings = {
---       python = {
---         analysis = {
---           autoSearchPaths = true,
---           typeCheckingMode = "basic",
---         },
---       },
---     },
---   },
---   lua_ls = {
---     settings = {
---       Lua = {
---         diagnostics = {
---           globals = { "vim" },
---         },
---       },
---     },
---   },
--- }

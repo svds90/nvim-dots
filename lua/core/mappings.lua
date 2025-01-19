@@ -1,31 +1,9 @@
 vim.g.mapleader = " "
 
--- NEOTREE
-local function toggle_neo_tree()
-  local current_buf = vim.api.nvim_get_current_buf()
+-- FUCK TABS FUCK SPACES
 
-  local is_neo_tree = vim.bo[current_buf].filetype == "neo-tree"
-
-  if is_neo_tree then
-    vim.cmd "Neotree close"
-  else
-    local neo_tree_buf = nil
-    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-      if vim.bo[buf].filetype == "neo-tree" then
-        neo_tree_buf = buf
-        break
-      end
-    end
-
-    if neo_tree_buf then
-      vim.cmd "Neotree focus"
-    else
-      vim.cmd "Neotree toggle"
-    end
-  end
-end
-
-vim.keymap.set("n", "<Leader>e", toggle_neo_tree, { desc = "Toggle NeoTree" })
+-- NVIMTREE
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 -- TELESCOPE
 local function telescope_builtin(cmd)

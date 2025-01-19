@@ -19,7 +19,6 @@ local formatting = {
   end,
 }
 
--- Источники для автодополнения
 local sources = {
   { name = "nvim_lsp" },
   { name = "buffer" },
@@ -30,7 +29,6 @@ local sources = {
   -- { name = "treesitter", keyword_length = 3, max_item_count = 10 },
 }
 
--- Настройка клавиш
 local mapping = {
   ["<Up>"] = cmp.mapping.select_prev_item(),
   ["<Down>"] = cmp.mapping.select_next_item(),
@@ -39,8 +37,8 @@ local mapping = {
   ["<Tab>"] = function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
-    elseif luasnip.expand_or_jumpable() then
-      luasnip.expand_or_jump()
+    -- elseif luasnip.expand_or_jumpable() then
+    --   luasnip.expand_or_jump()
     else
       fallback()
     end
@@ -48,8 +46,8 @@ local mapping = {
   ["<S-Tab>"] = function(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      luasnip.jump(-1)
+    -- elseif luasnip.jumpable(-1) then
+    --   luasnip.jump(-1)
     else
       fallback()
     end
@@ -69,7 +67,6 @@ local mapping = {
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
--- Возвращаем финальную конфигурацию
 return {
   formatting = formatting,
   sources = sources,

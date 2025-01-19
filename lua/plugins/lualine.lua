@@ -4,7 +4,7 @@ require("lualine").setup {
     theme = "horizon",
     -- component_separators = { left = "", right = "" },
     -- section_separators = { left = "", right = "" },
-    component_separators = { left = "", right = "" },
+    component_separators = { left = "-", right = "" },
     section_separators = { left = "", right = "" },
     disabled_filetypes = {
       statusline = {},
@@ -22,6 +22,7 @@ require("lualine").setup {
   },
   sections = {
     lualine_a = { "mode" },
+
     lualine_b = { "branch", "diff" },
     -- lualine_c = { "filename" },
     lualine_c = {
@@ -43,7 +44,7 @@ require("lualine").setup {
       },
       "diagnostics",
     },
-    lualine_x = { "filetype" },
+    lualine_x = { "filename" },
     lualine_y = { "progress" },
     lualine_z = { "location" },
   },
@@ -58,5 +59,5 @@ require("lualine").setup {
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = { "neo-tree", "lazy", "mason" },
+  extensions = { "lazy", "mason" },
 }

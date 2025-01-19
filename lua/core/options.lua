@@ -1,19 +1,18 @@
 -- "Inspect" fix
 vim.hl = vim.highlight
 
+-- VIM
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.opt.pumheight = 15
--- vim.wo.statuscolumn = "%s %l %r "
+vim.opt.termguicolors = true
+vim.opt.startofline = false
+vim.wo.signcolumn = "yes"
 
--- Indent Settings
--- vim.opt.expandtab = true
--- vim.opt.shiftwidth = 4
--- vim.opt.tabstop = 4
--- vim.opt.softtabstop = 4
--- vim.opt.smartindent = true
+-- TABBY
+vim.o.showtabline = 2
 
--- Установка отступов в 2 пробела для Lua
+-- LUA TWO SPACES
 vim.cmd [[
   autocmd FileType lua setlocal tabstop=2 shiftwidth=2 expandtab
 ]]

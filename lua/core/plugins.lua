@@ -1,5 +1,6 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+local user = vim.fn.expand "$USER"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system { "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }
@@ -15,13 +16,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup {
-
-  -- LAZY OPTS
-  checker = { enabled = false },
-  install = { colorscheme = { "kanagawa" } },
-
-  -- LAZY PLUGS INIT
+require("lazy").setup({
+  -- Плагины
+  {
+    dir = "/home/" .. user .. "/.config/nvim/lua/themes/sonya",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd "colorscheme sonya"
+    end,
+  },
   {
     "williamboman/mason.nvim",
     config = function()
@@ -41,6 +45,7 @@ require("lazy").setup {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
+    lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -51,32 +56,11 @@ require("lazy").setup {
     end,
   },
   {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "echasnovski/mini.icons",
-    },
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
-    keys = {
-      {
-        "<leader>?",
-        function()
-          require("which-key").show { global = false }
-        end,
-        desc = "Buffer Local Keymaps (which-key)",
-      },
-    },
-  },
-  {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = function()	
+    opts = function()
       require "plugins.lualine"
-      end,
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -101,16 +85,32 @@ require("lazy").setup {
     -- this is equivalent to setup({}) function
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    lazy = true,
-    cmd = "Neotree",
-    opts = require "plugins.neotree",
-    branch = "v3.x",
+    "rktjmp/lush.nvim",
+    -- dependencies = {
+    --   "nanozuki/tabby.nvim",
+    -- },
+    -- if you wish to use your own colorscheme:
+    -- { dir = '/absolute/path/to/colorscheme', lazy = true },
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
     dependencies = {
-      "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
     },
+    config = function()
+      require "plugins.nvimtree"
+    end,
+  },
+  {
+    "nanozuki/tabby.nvim",
+    -- event = 'VimEnter', -- if you want lazy load, see below
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require "plugins.tabby"
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -120,10 +120,9 @@ require("lazy").setup {
     end,
   },
   {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
+    "norcalli/nvim-colorizer.lua",
     config = function()
-      require "plugins.kanagawa"
+      require("colorizer").setup()
     end,
   },
   {
@@ -146,4 +145,16 @@ require("lazy").setup {
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
-}
+}, {
+  -- Настройки Lazy.nvim
+  checker = { enabled = true },
+  install = { colorscheme = { "vim" } },
+  debug = false,
+  ui = {
+    backdrop = 100,
+    size = {
+      width = 0.9,
+      height = 0.9,
+    },
+  },
+})
