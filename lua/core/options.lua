@@ -7,6 +7,7 @@ vim.wo.relativenumber = true
 vim.opt.pumheight = 15
 vim.opt.termguicolors = true
 vim.opt.startofline = false
+vim.opt.laststatus = 0
 vim.wo.signcolumn = "yes"
 
 -- TABBY

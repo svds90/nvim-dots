@@ -75,7 +75,7 @@ local theme = lush(function(injected_functions)
     -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
     -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    -- CursorLine     { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine { bg = "#343442" }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory { fg = "#727ea3", gui = "bold" }, -- Directory names (and other special names in listings)
     -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
     -- DiffChange     { }, -- Diff mode: Changed line |diff.txt|
@@ -97,10 +97,10 @@ local theme = lush(function(injected_functions)
     -- CursorLineNr   { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
-    MatchParen { fg = "#262626", bg = "#db5c18", gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen { fg = "#ffffff", bg = "#4b536e", gui = "bold" }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     -- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea { fg = "#bababa" }, -- Area for messages and cmdline
-    MsgSeparator { bg = "#1e1e26" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
+    MsgSeparator { bg = "NONE" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg { gui = "bold", fg = "#4b8c43" }, -- |more-prompt|
     -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal { fg = "#bababa", bg = "#262630" }, -- Normal text
@@ -114,7 +114,7 @@ local theme = lush(function(injected_functions)
     -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
     -- PmenuExtra     { }, -- Popup menu: Normal item "extra text"
     -- PmenuExtraSel  { }, -- Popup menu: Selected item "extra text"
-    PmenuSbar { bg = "#323240" }, -- Popup menu: Scrollbar.
+    PmenuSbar { bg = "#22222b" }, -- Popup menu: Scrollbar.
     PmenuThumb { bg = "#5d5d75" }, -- Popup menu: Thumb of the scrollbar.
     Question { fg = "#479e3e", gui = "bold" }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine   { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
@@ -138,6 +138,8 @@ local theme = lush(function(injected_functions)
     -- WildMenu       { }, -- Current match in 'wildmenu' completion
     -- WinBar         { }, -- Window bar of current window
     -- WinBarNC       { }, -- Window bar of not-current windows
+
+    -- NvimTreeIndentMarker { bg = "#ffffff", fg = "#ffffff" },
 
     -- Common vim syntax groups used for all kinds of code and markup.
     -- Commented-out groups should chain up to their preferred (*) group

@@ -7,6 +7,7 @@ local formatting = {
   format = function(entry, item)
     local menu_icon = {
       nvim_lsp = " ", --   󱡶
+      nvim_lua = " ",
       luasnip = " ",
       buffer = " ",
       path = " ",
@@ -66,6 +67,9 @@ local mapping = {
 }
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+vim.api.nvim_set_hl(0, "CmpMainBackground", { bg = "#30303d" })
+vim.api.nvim_set_hl(0, "CmpDocBackground", { bg = "#202029" })
+vim.api.nvim_set_hl(0, "CmpCursorLine", { bg = "#46465c" })
 
 return {
   formatting = formatting,
@@ -75,12 +79,13 @@ return {
     completion = {
       border = "none",
       scrollbar = true,
-      winhighlight = "Normal:MyCompletion",
+      winhighlight = "Normal:CmpMainBackground,CursorLine:CmpCursorLine",
     },
     documentation = {
       border = "none",
       scrollbar = true,
-      winhighlight = "Normal:MyDocumentation",
+      winhighlight = "Normal:CmpDocBackground",
+      cmp,
     },
   },
   completion = {

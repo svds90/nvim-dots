@@ -1,16 +1,35 @@
 local theme = {
-  fill = "TabLineFill",
+  fill = { bg = "#1e1e26" },
   head = "TabLine",
-  current_tab = { bg = "#874917", fg = "#e3dfe6", style = "bold" },
+  current_tab = { bg = "#874917", fg = "#c2c2c2", style = "bold" },
   current_tab_sep = { bg = "#874917" },
   tab = { bg = "#343442", fg = "#76798a" },
   win = {
-    active = { bg = "#874917", fg = "#e3dfe6", style = "bold" }, -- Активное окно
+    active = { bg = "#874917", fg = "#c2c2c2", style = "bold" }, -- Активное окно
     inactive = { bg = "#343442", fg = "#76798a" }, -- Неактивное окно
   },
   tail = "TabLine",
 }
 
+-- Функция для получения LSP-серверов для текущего буфера
+local function get_lsp_clients()
+  local clients = vim.lsp.get_active_clients { bufnr = vim.api.nvim_get_current_buf() }
+  if #clients == 0 then
+    return ""
+  end
+  local client_names = {}
+  for _, client in ipairs(clients) do
+    table.insert(client_names, client.name)
+  end
+  return "" .. table.concat(client_names, ", ") .. " "
+end
+
+-- Функция для индикатора изменения файла
+local function get_modified_status()
+  return vim.bo.modified and " ✓" or " ✗"
+end
+
+-- Настройка tabby
 require("tabby").setup {
   line = function(line)
     return {
@@ -45,9 +64,18 @@ require("tabby").setup {
       end),
       {
         line.sep("", theme.tail, theme.fill),
-        { "  ", hl = theme.tail },
+        { get_modified_status(), hl = theme.tail }, -- Индикатор изменения файла
+        { " " .. get_lsp_clients(), hl = theme.tail }, -- LSP-серверы для текущего буфера
       },
       hl = theme.fill,
     }
   end,
 }
+
+-- Автоматическое обновление tabby при изменении активного буфера
+vim.api.nvim_create_autocmd({ "BufEnter", "LspAttach", "LspDetach" }, {
+  callback = function()
+    -- Принудительно обновляем tabby
+    require("tabby").update()
+  end,
+})

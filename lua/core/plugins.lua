@@ -29,7 +29,7 @@ require("lazy").setup({
   {
     "williamboman/mason.nvim",
     config = function()
-      require("mason").setup()
+      require "plugins.mason"
     end,
   },
   {
@@ -55,13 +55,13 @@ require("lazy").setup({
       return require "plugins.telescope"
     end,
   },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = function()
-      require "plugins.lualine"
-    end,
-  },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   opts = function()
+  --     require "plugins.lualine"
+  --   end,
+  -- },
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -151,6 +151,7 @@ require("lazy").setup({
   install = { colorscheme = { "vim" } },
   debug = false,
   ui = {
+    border = "single",
     backdrop = 100,
     size = {
       width = 0.9,
