@@ -105,8 +105,8 @@ local theme = lush(function(injected_functions)
     -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal { fg = "#bababa", bg = "#262630" }, -- Normal text
     NormalFloat {}, -- Normal text in floating windows.
-    FloatBorder {}, -- Border of floating windows.
-    -- FloatTitle     { }, -- Title of floating windows.
+    FloatBorder { fg = "#616378" }, -- Border of floating windows.
+    FloatTitle { fg = "#9b9fd4" }, -- Title of floating windows.
     -- NormalNC       { }, -- normal text in non-current windows
     Pmenu { bg = "#383847" }, -- Popup men#383847u: Normal item.
     PmenuSel { bg = "#444457" }, -- Popup menu: Selected item.
@@ -207,10 +207,10 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError { fg = "#e33b32" }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn { fg = "#db7535" }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo { fg = "#cccccc" }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint { fg = "#638bd6" }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticOk               { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
@@ -249,6 +249,45 @@ local theme = lush(function(injected_functions)
     -- sym'@text.literal'
     --
     -- For more information see https://github.com/rktjmp/lush.nvim/issues/109
+    --
+    -- PYTHON
+
+    sym "@keyword.import.python" { fg = "#b5243a", gui = "" },
+    sym "@module.python" { fg = "#c2c2c2", gui = "" },
+    sym "@constant.python" { fg = "#c2c2c2", gui = "bold" },
+    sym "@variable.python" { fg = "#c2c2c2", gui = "" },
+    sym "@boolean.python" { fg = "#eb4b9b", gui = "" },
+    sym "@number.python" { fg = "#9f9dbf", gui = "" },
+    sym "@attribute.python" { fg = "#7d7d7d", gui = "" },
+    sym "@number.float.python" { fg = "#9f9dbf", gui = "" },
+    sym "@type.python" { fg = "#a1a10a", gui = "bold" },
+    sym "@type.builtin.python" { fg = "#cf732d", gui = "" },
+    sym "@string.python" { fg = "#bdad6f", gui = "" },
+    sym "@string.escape.python" { fg = "#7d7d7d", gui = "" },
+    sym "@string.documentation.python" { Comment },
+    sym "@variable.parameter.python" { fg = "#7d7d7d" },
+    sym "@variable.builtin.python" { fg = "#7d7d7d", gui = "italic" },
+    sym "@variable.member.python" { fg = "#c2c2c2" },
+    sym "@function.python" { fg = "#0c9163", gui = "bold" },
+    sym "@function.method.python" { fg = "#0c9163" },
+    sym "@function.builtin.python" { fg = "#cf732d", gui = "" },
+    sym "@function.method.call.python" { fg = "#0c9163", gui = "" },
+    sym "@function.call.python" { fg = "#0c9163", gui = "" },
+    sym "@constructor.python" { fg = "#3868a6", gui = "bold" },
+    sym "@constant.builtin.python" { fg = "#eb4b9b", gui = "" },
+    sym "@keyword.function.python" { fg = "#b5243a", gui = "bold, italic" },
+    sym "@keyword.coroutine.python" { fg = "#b5243a", gui = "bold, italic" },
+    sym "@keyword.conditional.python" { fg = "#b5243a", gui = "bold" },
+    sym "@keyword.exception.python" { fg = "#b5243a", gui = "bold" },
+    sym "@keyword.repeat.python" { fg = "#b5243a", gui = "bold" },
+    sym "@keyword.python" { fg = "#b5243a", gui = "bold" },
+    sym "@keyword.type.python" { fg = "#b5243a", gui = "bold, italic" },
+    sym "@keyword.operator.python" { fg = "#b5243a", gui = "bold" },
+    sym "@keyword.return.python" { fg = "#b5243a", gui = "bold, italic" },
+    sym "@punctuation.bracket.python" { fg = "#9c9c9c", gui = "" },
+    sym "@punctuation.special.python" { fg = "#9c9c9c", gui = "" },
+    sym "@punctuation.delimiter.python" { fg = "#9c9c9c", gui = "" },
+    sym "@operator.python" { fg = "#9c9c9c", gui = "" },
 
     -- sym"@text.literal"      { }, -- Comment
     -- sym"@text.reference"    { }, -- Identifier

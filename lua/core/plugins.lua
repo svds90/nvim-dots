@@ -45,23 +45,23 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
-    lazy = false,
+    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope-frecency.nvim",
     },
     cmd = "Telescope",
     opts = function()
       return require "plugins.telescope"
     end,
   },
-  -- {
-  --   "nvim-lualine/lualine.nvim",
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   opts = function()
-  --     require "plugins.lualine"
-  --   end,
-  -- },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    -- dependencies = "nvim-telescope/telescope.nvim",
+    version = "*",
+    lazy = true,
+  },
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -147,7 +147,7 @@ require("lazy").setup({
   },
 }, {
   -- Настройки Lazy.nvim
-  checker = { enabled = true },
+  checker = { enabled = false },
   install = { colorscheme = { "vim" } },
   debug = false,
   ui = {

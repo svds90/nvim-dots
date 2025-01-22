@@ -20,6 +20,16 @@ return {
     -- Дополнительные настройки для конкретных пикеров...
   },
   extensions = {
-    -- Настройки расширений...
+    frecency = {
+      layout_config = {
+        width = 0.5,
+        height = 0.5,
+      },
+      show_scores = true,
+      show_unindexed = true,
+      ignore_patterns = { "*.git/*", "*/tmp/*" },
+      theme = "dropdown", -- Применяем тему dropdown
+      previewer = false, -- Отключаем превью
+    },
   },
 }

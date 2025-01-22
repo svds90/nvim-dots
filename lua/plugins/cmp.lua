@@ -1,5 +1,5 @@
 local cmp = require "cmp"
-local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+-- local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 
 local formatting = {
 
@@ -66,7 +66,8 @@ local mapping = {
   },
 }
 
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
 vim.api.nvim_set_hl(0, "CmpMainBackground", { bg = "#30303d" })
 vim.api.nvim_set_hl(0, "CmpDocBackground", { bg = "#202029" })
 vim.api.nvim_set_hl(0, "CmpCursorLine", { bg = "#46465c" })
