@@ -9,16 +9,14 @@ return {
       height = 0.9,
       prompt_position = "top",
       horizontal = {
-        preview_width = 0.6, -- Ширина предпросмотра (60% от ширины экрана)
+        preview_width = 0.6,
       },
       vertical = {
-        preview_height = 0.6, -- Высота предпросмотра (60% от высоты экрана)
+        preview_height = 0.6,
       },
     },
   },
-  pickers = {
-    -- Дополнительные настройки для конкретных пикеров...
-  },
+  pickers = {},
   extensions = {
     frecency = {
       layout_config = {
@@ -28,8 +26,8 @@ return {
       show_scores = true,
       show_unindexed = true,
       ignore_patterns = { "*.git/*", "*/tmp/*" },
-      theme = "dropdown", -- Применяем тему dropdown
-      previewer = false, -- Отключаем превью
+      theme = "dropdown",
+      previewer = false,
     },
   },
 }

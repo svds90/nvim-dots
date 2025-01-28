@@ -21,11 +21,11 @@ local formatting = {
 }
 
 local sources = {
+  -- { name = "nvim_lsp_signature_help" },
   { name = "nvim_lsp" },
   { name = "buffer" },
   { name = "nvim_lua" },
   { name = "path" },
-  { name = "nvim_lsp_signature_help" },
   -- { name = "codeium", keyword_length = 3, max_item_count = 10 },
   -- { name = "treesitter", keyword_length = 3, max_item_count = 10 },
 }
@@ -76,6 +76,16 @@ return {
   formatting = formatting,
   sources = sources,
   mapping = mapping,
+  sorting = {
+    comparators = {
+      cmp.config.compare.locality,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.kind,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
   window = {
     completion = {
       border = "none",

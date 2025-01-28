@@ -63,20 +63,28 @@ require("lazy").setup({
     lazy = true,
   },
   {
-    "hrsh7th/nvim-cmp",
+    "saghen/blink.cmp",
+    version = "*",
     event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-    },
-    opts = function()
-      return require "plugins.cmp"
+    config = function()
+      require "plugins.blink"
     end,
   },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   event = "InsertEnter",
+  --   dependencies = {
+  --     "hrsh7th/cmp-nvim-lsp",
+  --     "hrsh7th/cmp-nvim-lua",
+  --     "hrsh7th/cmp-buffer",
+  --     "hrsh7th/cmp-path",
+  --     "hrsh7th/cmp-cmdline",
+  --     "hrsh7th/cmp-nvim-lsp-signature-help",
+  --   },
+  --   opts = function()
+  --     return require "plugins.cmp"
+  --   end,
+  -- },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -114,6 +122,7 @@ require("lazy").setup({
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = { "saghen/blink.cmp" },
     event = "BufReadPost",
     config = function()
       require("plugins.lspconfig").defaults()
@@ -121,6 +130,7 @@ require("lazy").setup({
   },
   {
     "norcalli/nvim-colorizer.lua",
+    event = "InsertEnter",
     config = function()
       require("colorizer").setup()
     end,

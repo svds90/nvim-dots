@@ -11,25 +11,48 @@ local theme = {
   tail = "TabLine",
 }
 
--- Функция для получения LSP-серверов для текущего буфера
+-- get lsp server
+-- local function get_lsp_clients()
+--   local clients = vim.lsp.get_active_clients { bufnr = vim.api.nvim_get_current_buf() }
+--   if #clients == 0 then
+--     return ""
+--   end
+--   local client_names = {}
+--   for _, client in ipairs(clients) do
+--     table.insert(client_names, client.name)
+--   end
+--   return "" .. table.concat(client_names, ", ") .. " "
+-- end
+
+-- get venv
+local function get_venv_name()
+  local venv_path = os.getenv "VIRTUAL_ENV"
+  if venv_path then
+    local venv_name = venv_path:match "([^/]+)$"
+    return "(" .. venv_name .. ") "
+  end
+  return ""
+end
+
+-- get lsp server
 local function get_lsp_clients()
   local clients = vim.lsp.get_active_clients { bufnr = vim.api.nvim_get_current_buf() }
-  if #clients == 0 then
-    return ""
-  end
   local client_names = {}
   for _, client in ipairs(clients) do
     table.insert(client_names, client.name)
   end
-  return "" .. table.concat(client_names, ", ") .. " "
+
+  local venv_name = get_venv_name()
+  local lsp_info = #clients > 0 and table.concat(client_names, ", ") or ""
+  return lsp_info .. (venv_name ~= "" and " " .. venv_name or " ")
 end
 
--- Функция для индикатора изменения файла
+-- get buff status
 local function get_modified_status()
-  return vim.bo.modified and " ✓" or " ✗"
+  return vim.bo.modified and " ✗" or " ✓"
 end
 
--- Настройка tabby
+-- tabby setup
 require("tabby").setup {
   line = function(line)
     return {
@@ -64,18 +87,17 @@ require("tabby").setup {
       end),
       {
         line.sep("", theme.tail, theme.fill),
-        { get_modified_status(), hl = theme.tail }, -- Индикатор изменения файла
-        { " " .. get_lsp_clients(), hl = theme.tail }, -- LSP-серверы для текущего буфера
+        { get_modified_status(), hl = theme.tail },
+        { " " .. get_lsp_clients(), hl = theme.tail },
       },
       hl = theme.fill,
     }
   end,
 }
 
--- Автоматическое обновление tabby при изменении активного буфера
+-- tabby upd
 vim.api.nvim_create_autocmd({ "BufEnter", "LspAttach", "LspDetach" }, {
   callback = function()
-    -- Принудительно обновляем tabby
     require("tabby").update()
   end,
 })
