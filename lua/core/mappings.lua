@@ -2,6 +2,10 @@ vim.g.mapleader = " "
 
 -- VIM
 vim.keymap.set("n", "<leader>pp", ":!python %<CR>", { noremap = true, silent = true, desc = "Run current Python file" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { silent = true }) -- switch windows
+vim.keymap.set("n", "<C-l>", "<C-w>l", { silent = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { silent = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { silent = true })
 
 -- NVIMTREE
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })

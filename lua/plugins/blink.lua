@@ -30,5 +30,6 @@ blink.setup {
 
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
+    min_keyword_length = 2,
   },
 }

@@ -15,32 +15,32 @@ vim.o.scrolloff = 3
 vim.o.virtualedit = "onemore"
 
 -- add an epty space
-vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-  callback = function()
-    if vim.bo.buftype ~= "" then
-      return
-    end
-
-    local windowLines = vim.api.nvim_win_get_height(0)
-    local currLine = vim.fn.line "."
-    local lastLine = vim.fn.line "$"
-
-    local bottom = 0
-    if windowLines > lastLine then
-      bottom = windowLines
-    else
-      bottom = lastLine
-    end
-
-    local marginBottom = currLine + vim.o.scrolloff - bottom
-    if marginBottom == 0 then
-      vim.api.nvim_input "zb"
-    elseif marginBottom > 0 then
-      vim.api.nvim_input "zb"
-      vim.api.nvim_input(marginBottom .. "<C-E>")
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+--   callback = function()
+--     if vim.bo.buftype ~= "" then
+--       return
+--     end
+--
+--     local windowLines = vim.api.nvim_win_get_height(0)
+--     local currLine = vim.fn.line "."
+--     local lastLine = vim.fn.line "$"
+--
+--     local bottom = 0
+--     if windowLines > lastLine then
+--       bottom = windowLines
+--     else
+--       bottom = lastLine
+--     end
+--
+--     local marginBottom = currLine + vim.o.scrolloff - bottom
+--     if marginBottom == 0 then
+--       vim.api.nvim_input "zb"
+--     elseif marginBottom > 0 then
+--       vim.api.nvim_input "zb"
+--       vim.api.nvim_input(marginBottom .. "<C-E>")
+--     end
+--   end,
+-- })
 
 -- TABBY
 vim.o.showtabline = 2
