@@ -1,7 +1,12 @@
 local blink = require "blink.cmp"
 
 blink.setup {
-  keymap = { preset = "super-tab" },
+  keymap = {
+    preset = "default",
+    ["<Tab>"] = { "select_next", "fallback" },
+    ["<S-Tab>"] = { "select_prev", "fallback" },
+    ["<CR>"] = { "accept", "fallback" },
+  },
 
   completion = {
     menu = {
