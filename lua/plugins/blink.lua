@@ -9,6 +9,11 @@ blink.setup {
   },
 
   completion = {
+    list = {
+      selection = {
+        preselect = false,
+      },
+    },
     menu = {
       max_height = 5,
       auto_show = true,
