@@ -1,5 +1,5 @@
 return {
-  ensure_installed = { "lua", "query", "python", "luadoc", "printf", "vim", "vimdoc" },
+  ensure_installed = { "lua", "yaml", "query", "python", "luadoc", "printf", "vim", "vimdoc" },
 
   playground = {
     enabled = true,

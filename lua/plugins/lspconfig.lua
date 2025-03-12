@@ -51,6 +51,23 @@ M.defaults = function()
       },
     },
   }
+
+  require("lspconfig").yamlls.setup {
+    handlers = handlers,
+    capabilities = capabilities,
+    settings = {
+      yaml = {
+        format = {
+          enable = true,
+          singleQuote = false,
+          bracketSpacing = true,
+        },
+        validate = true,
+        completion = true,
+        hover = true,
+      },
+    },
+  }
 end
 
 return M
