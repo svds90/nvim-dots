@@ -62,6 +62,12 @@ M.defaults = function()
           singleQuote = false,
           bracketSpacing = true,
         },
+      yml = {
+        format = {
+          enable = true,
+          singleQuote = false,
+          bracketSpacing = true,
+        },
         validate = true,
         completion = true,
         hover = true,
