@@ -62,6 +62,7 @@ M.defaults = function()
           singleQuote = false,
           bracketSpacing = true,
         },
+      },
       yml = {
         format = {
           enable = true,
