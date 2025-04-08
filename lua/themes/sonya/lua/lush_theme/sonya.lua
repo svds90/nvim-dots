@@ -139,8 +139,6 @@ local theme = lush(function(injected_functions)
     -- WinBar         { }, -- Window bar of current window
     -- WinBarNC       { }, -- Window bar of not-current windows
 
-    -- NvimTreeIndentMarker { bg = "#ffffff", fg = "#ffffff" },
-
     -- Common vim syntax groups used for all kinds of code and markup.
     -- Commented-out groups should chain up to their preferred (*) group
     -- by default.
@@ -288,6 +286,12 @@ local theme = lush(function(injected_functions)
     sym "@punctuation.special.python" { fg = "#9c9c9c", gui = "" },
     sym "@punctuation.delimiter.python" { fg = "#9c9c9c", gui = "" },
     sym "@operator.python" { fg = "#9c9c9c", gui = "" },
+
+    -- YAML
+
+    sym "@string.yaml" { fg = "#aaaaaa" },
+    sym "@property.yaml" { fg = "#63ad5f" },
+    sym "@punctuation.delimiter.yaml" { fg = "#aaaaaa" },
 
     -- sym"@text.literal"      { }, -- Comment
     -- sym"@text.reference"    { }, -- Identifier

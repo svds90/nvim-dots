@@ -2,7 +2,7 @@
 -- vim.cmd "hi NvimTreeRootFolder guifg=#6877a6"
 
 vim.api.nvim_set_hl(0, "MsgArea", { bg = "#1e1e26" })
-vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = "#6877a6" })
+vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = "#ad611d", bold = true })
 vim.api.nvim_set_hl(0, "NvimTreeModifiedIcon", { fg = "#588c2a" })
 vim.api.nvim_set_hl(0, "NvimTreeGitDirtyIcon", { fg = "#b52f2f" })
 vim.api.nvim_set_hl(0, "NvimTreeGitNewIcon", { fg = "#3cb52f" })
