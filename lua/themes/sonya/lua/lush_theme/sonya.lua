@@ -290,8 +290,35 @@ local theme = lush(function(injected_functions)
     -- YAML
 
     sym "@string.yaml" { fg = "#aaaaaa" },
-    sym "@property.yaml" { fg = "#63ad5f" },
-    sym "@punctuation.delimiter.yaml" { fg = "#aaaaaa" },
+    sym "@property.yaml" { fg = "#63ad5f", gui = "bold" },
+    sym "@punctuation.delimiter.yaml" { fg = "#707070" },
+    sym "@punctuation.bracket.yaml" { fg = "#ad611d", gui = "bold" },
+
+    -- SHELL
+
+    sym "@keyword.directive.bash" { fg = "#aaaaaa" },
+    sym "@function.builtin.bash" { fg = "#2c8a43" },
+    sym "@function.call.bash" { fg = "#2c8a43", gui = "bold" },
+    sym "@function.bash" { fg = "#2c8a43", gui = "bold, italic" },
+    sym "@keyword.bash" { fg = "#bf6524" },
+    sym "@keyword.conditional.bash" { fg = "#c23434" },
+    sym "@keyword.function.bash" { fg = "#c23434" },
+    sym "@keyword.repeat.bash" { fg = "#c23434" },
+    sym "@operator.bash" { fg = "#aaaaaa" },
+    sym "@label.bash" { fg = "#d1b52a", gui = "bold" },
+    sym "@string.special.path.bash" { fg = "#d1b52a", gui = "bold" },
+    sym "@punctuation.bracket.bash" { fg = "#737373", gui = "bold" },
+    sym "@punctuation.special.bash" { fg = "#737373", gui = "bold" },
+    sym "@punctuation.delimiter.bash" { fg = "#737373", gui = "bold" },
+    sym "@variable.bash" { fg = "#c4c4c4" },
+    sym "@string.bash" { fg = "#ada478" },
+    sym "@string.regexp.bash" { fg = "#d1bf66", gui = "italic" },
+    sym "@number.bash" { fg = "#aaaaaa" },
+    sym "@constant.bash" { fg = "#c4c4c4", gui = "bold" },
+    sym "@variable.builtin.bash" { fg = "#6993bf", gui = "bold" },
+    sym "@boolean.bash" { fg = "#ff63bc", gui = "bold" },
+    sym "@character.special.bash" { fg = "#ff63bc", gui = "bold" },
+    sym "@variable.parameter.bash" { fg = "#aaaaaa" },
 
     -- sym"@text.literal"      { }, -- Comment
     -- sym"@text.reference"    { }, -- Identifier

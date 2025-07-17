@@ -38,6 +38,16 @@ M.defaults = function()
     },
   }
 
+  require("lspconfig").bashls.setup {
+    handlers = handlers,
+    capabilities = capabilities,
+    settings = {
+      bashIde = {
+        globPattern = "*@(.sh|.inc|.bash|.command)",
+      },
+    },
+  }
+
   require("lspconfig").pyright.setup {
     handlers = handlers,
     capabilities = capabilities,
