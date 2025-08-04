@@ -296,8 +296,8 @@ local theme = lush(function(injected_functions)
 
     -- SHELL
 
-    sym "@keyword.directive.bash" { fg = "#aaaaaa" },
-    sym "@function.builtin.bash" { fg = "#2c8a43" },
+    sym "@keyword.directive.bash" { fg = "#666666" },
+    sym "@function.builtin.bash" { fg = "#44879c" },
     sym "@function.call.bash" { fg = "#2c8a43", gui = "bold" },
     sym "@function.bash" { fg = "#2c8a43", gui = "bold, italic" },
     sym "@keyword.bash" { fg = "#bf6524" },

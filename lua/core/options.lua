@@ -50,6 +50,11 @@ vim.cmd [[
   autocmd FileType lua setlocal tabstop=2 shiftwidth=2 expandtab
 ]]
 
+-- BASH TWO SPACES
+vim.cmd [[
+  autocmd FileType sh setlocal tabstop=2 shiftwidth=2 expandtab
+]]
+
 -- DIAGNOSTIC SYMBOLS
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
